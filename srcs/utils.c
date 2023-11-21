@@ -6,7 +6,7 @@
 /*   By: ratavare <ratavare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:19:20 by ratavare          #+#    #+#             */
-/*   Updated: 2023/03/23 16:27:10 by ratavare         ###   ########.fr       */
+/*   Updated: 2023/11/21 23:57:24 by ratavare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,28 @@ float	mod(float a)
 
 void	fd_error(void)
 {
-	write(1, "Invalid map name\n", 17);
-	write(1, "Usage: ./fdf map/*map_name*\n", 29);
+	ssize_t	i;
+
+	i = write(2, "Invalid map name\n", 17);
+	i = write(2, "Usage: ./fdf map/*map_name*\n", 29);
+	(void)i;
 	exit (0);
 }
 
 void	arg_error(void)
 {
-	write(1, "Invalid argument number\n", 24);
+	ssize_t	i;
+
+	i = write(2, "Invalid argument number\n", 24);
+	(void)i;
 	exit (0);
 }
 
 void	map_error(void)
 {
-	write(1, "Invalid map. (Not properly formated)\n", 37);
+	ssize_t	i;
+
+	i = write(2, "Invalid map. (Not properly formated)\n", 37);
+	(void)i;
 	exit (0);
 }
